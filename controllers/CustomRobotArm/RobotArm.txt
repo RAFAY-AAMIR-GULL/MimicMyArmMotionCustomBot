@@ -1,0 +1,225 @@
+from controller import Robot
+try:
+    import cv2
+    import mediapipe as mp
+    import time
+ 
+except ImportError:
+    print("Warning: 'cv2' or 'mediapipe' or 'time' module not found. Please check the Python modules installation instructions " +
+             "at 'https://www.cyberbotics.com/doc/guide/using-python'.")
+
+
+
+
+#  The video source  (0) and (n) is for, to using the builtin camera of laptop and to using the nth external camera source.
+
+
+#cap=cv2.VideoCapture("C:/Users/lenovo/Videos/Captures/D__Webots_Project1_RobotArm.wbt (No Project) - Webots R2021b 2022-02-27 15-25-36.mp4")
+
+mpDraw=mp.solutions.drawing_utils
+mpPose=mp.solutions.pose
+pose=mpPose.Pose()
+
+cap=cv2.VideoCapture(0)
+pTime=0
+
+
+
+while True:
+    success, img = cap.read()
+    img=cv2.flip(img,1)
+    cv2.imshow("Video",img)
+    k=cv2.waitKey(30) & 0xff
+    
+    if k==27:
+        break
+
+
+
+cap.release()
+cv2.destroyAllWindows()
+        
+
+
+
+robot=Robot()
+timestep=64
+
+
+cap=cv2.imread
+
+m=robot.getMotor("motor")
+m.setPosition(float('inf'))
+
+# m.setPosition(2.0)
+
+
+m.setVelocity(0.0)
+
+pSensor=robot.getPositionSensor("ps")
+pSensor.enable(timestep)
+
+speed=1
+k=0  #to get position sensor reading
+
+
+#while (robot.step(timestep) !=-1):
+
+
+while (robot.step(timestep) !=-1):
+    m.setVelocity(speed)
+    print("Hello World!")
+    k=pSensor.getValue()
+    print(k)
+    if (k>1.57):
+        if (speed==1):
+            speed=-1
+    if (k<0):
+        if (speed==-1):
+            speed=1
+    
+    pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+from controller import Robot
+try:
+    import cv2
+    import mediapipe as mp
+    import time
+ 
+except ImportError:
+    print("Warning: 'cv2' or 'mediapipe' or 'time' module not found. Please check the Python modules installation instructions " +
+             "at 'https://www.cyberbotics.com/doc/guide/using-python'.")
+
+
+
+
+ # The video source  (0) and (n) is for, to using the builtin camera of laptop and to using the nth external camera source.
+
+
+#cap=cv2.VideoCapture("C:/Users/lenovo/Videos/Captures/D__Webots_Project1_RobotArm.wbt (No Project) - Webots R2021b 2022-02-27 15-25-36.mp4")
+
+mpDraw=mp.solutions.drawing_utils
+mpPose=mp.solutions.pose
+pose=mpPose.Pose()
+
+cap=cv2.VideoCapture(0)
+pTime=0
+
+
+robot=Robot()
+timestep=64
+
+
+cap=cv2.imread
+
+m=robot.getMotor("motor")
+m.setPosition(float('inf'))
+
+# m.setPosition(2.0)
+
+
+m.setVelocity(0.0)
+
+pSensor=robot.getPositionSensor("ps")
+pSensor.enable(timestep)
+
+speed=1
+k=0  #to get position sensor reading
+
+
+while True:
+
+    success, img = cap.read()
+    img=cv2.flip(img,1)
+    cv2.imshow("Video",img)
+    m.setVelocity(speed)
+    print("Hello World!")
+    k=pSensor.getValue()
+    print(k)
+    if (k>1.57):
+        if (speed==1):
+            speed=-1
+    if (k<0):
+        if (speed==-1):
+            speed=1
+    
+    check=cv2.waitKey(30) & 0xff
+    if check==27:
+        break
+
+
+
+cap.release()
+cv2.destroyAllWindows()
+        
+
+
+
+
+#while (robot.step(timestep) !=-1):
+
+
+# while (robot.step(timestep) !=-1):
+    # m.setVelocity(speed)
+    # print("Hello World!")
+    # k=pSensor.getValue()
+    # print(k)
+    # if (k>1.57):
+        # if (speed==1):
+            # speed=-1
+    # if (k<0):
+        # if (speed==-1):
+            # speed=1
+    
+    # pass
+    

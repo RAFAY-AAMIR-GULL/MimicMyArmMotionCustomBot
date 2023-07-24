@@ -1,0 +1,105 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.5150633681670419 0.6403560691973935 0.5697840217262018 2.33932171437422
+  position 0.7176287967252456 0.0798030042552223 2.2518305950309125
+}
+RectangleArena {
+  translation -0.00170352 -0.51 -0.0129409
+  rotation 0.9831056944448991 -0.1294259597736414 -0.12942995977239816 -1.5878353071795859
+}
+Robot {
+  translation 0 -0.26 0
+  rotation 0 1 0 0.24621374582430297
+  children [
+    Pose {
+      children [
+        DEF body Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.1 0.2 0.1
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor 0 0.05 0.075
+      }
+      device [
+        RotationalMotor {
+          name "motor"
+        }
+        PositionSensor {
+          name "ps"
+        }
+      ]
+      endPoint Solid {
+        translation 8.19372e-06 0.05 0.0750001
+        children [
+          DEF axle Shape {
+            appearance PBRAppearance {
+              baseColor 1 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Box {
+              size 0.05 0.05 0.05
+            }
+          }
+          Solid {
+            translation 0.075 0 0.05
+            children [
+              DEF arm Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 1
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.2 0.05 0.05
+                }
+              }
+            ]
+            boundingObject USE arm
+            physics Physics {
+            }
+          }
+        ]
+        boundingObject USE axle
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject DEF Body Shape {
+    appearance PBRAppearance {
+      baseColor 0 1 1
+      roughness 1
+      metalness 0
+    }
+    geometry Box {
+      size 0.1 0.5 0.1
+    }
+  }
+  physics Physics {
+  }
+  controller "RobotArm"
+  cpuConsumption 50
+}
+TexturedBackgroundLight {
+}
+TexturedBackground {
+}
