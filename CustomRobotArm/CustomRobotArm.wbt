@@ -96,7 +96,7 @@ Robot {
   }
   physics Physics {
   }
-  controller "RobotArm"
+  controller "CustomBotController"
   cpuConsumption 50
 }
 TexturedBackgroundLight {
