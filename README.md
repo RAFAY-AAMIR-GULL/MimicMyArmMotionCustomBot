@@ -1,5 +1,5 @@
 # MimicMyArmMotionCustomBot
-Easy, plug-n-play code. A custom made robotic manipulator (non-realistic) will mimic your arm motion using your webcam:)
+Easy, plug-and-play code. A custom-made robotic manipulator (non-realistic) will mimic your arm motion using your webcam:)
 
 
 <img src='CustomBot_1.png' width=800>
@@ -15,4 +15,4 @@ Please install the following:
   
 That's pretty much it:)  
   
-  Just open the webots world from [CustomRobotArm.wbt](./CustomRobotArm) and run it in webots robot simulator.
+  Just open the Webots world from [CustomRobotArm.wbt](./CustomRobotArm) and run it in the Webots robot simulator.
